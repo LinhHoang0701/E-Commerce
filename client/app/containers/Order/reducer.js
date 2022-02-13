@@ -12,6 +12,7 @@ import {
   SET_ORDERS_LOADING,
   CLEAR_ORDERS,
   FETCH_CUSTOMER_ORDERS,
+  PAID_PAYPAL,
 } from "./constants";
 
 const initialState = {
@@ -26,6 +27,7 @@ const initialState = {
     total: 0,
     status: "",
   },
+  payment: [],
   isLoading: false,
 };
 
@@ -75,6 +77,11 @@ const orderReducer = (state = initialState, action) => {
       return {
         ...state,
         orders: [],
+      };
+    case PAID_PAYPAL:
+      return {
+        ...state,
+        payment: action.payload,
       };
     default:
       return state;

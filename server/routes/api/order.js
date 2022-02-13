@@ -6,6 +6,7 @@ const Mongoose = require("mongoose");
 const Order = require("../../models/order");
 const Cart = require("../../models/cart");
 const Product = require("../../models/product");
+const Payment = require("../../models/payment");
 const User = require("../../models/user");
 const auth = require("../../middleware/auth");
 const role = require("../../middleware/role");
@@ -26,7 +27,7 @@ router.post("/add", auth, async (req, res) => {
 
     const orderDoc = await order.save();
 
-    const cartDoc = await Cart.findById(orderDoc.cart._id).populate({
+    const cartDoc = await Cart.findById(orderDoc.cart).populate({
       path: "products.product",
       populate: {
         path: "brand",
@@ -40,12 +41,12 @@ router.post("/add", auth, async (req, res) => {
       total: orderDoc.total,
       products: cartDoc.products,
     };
-    await mailgun.sendEmail(
-      req.user.email,
-      "order-confirmation",
-      req.headers.host,
-      newOrder
-    );
+    // await mailgun.sendEmail(
+    //   req.user.email,
+    //   "order-confirmation",
+    //   req.headers.host,
+    //   newOrder
+    // );
 
     res.status(200).json({
       success: true,
@@ -53,6 +54,7 @@ router.post("/add", auth, async (req, res) => {
       order: { _id: orderDoc._id },
     });
   } catch (error) {
+    console.log(error);
     res.status(400).json({
       error: "Your request could not be processed. Please try again.",
     });
@@ -256,6 +258,8 @@ router.get("/:orderId", auth, async (req, res) => {
       created: orderDoc.created,
       totalTax: 0,
       products: orderDoc?.cart?.products,
+      isPaid: orderDoc.isPaid,
+      user: orderDoc?.cart?.user,
       cartId: orderDoc.cart._id,
     };
 
@@ -323,6 +327,7 @@ router.put("/status/item/:itemId", auth, async (req, res) => {
       if (cart.products.length === items.length) {
         await Order.deleteOne({ _id: orderId });
         await Cart.deleteOne({ _id: cartId });
+        await Payment.deleteOne({ order: orderId });
 
         return res.status(200).json({
           success: true,

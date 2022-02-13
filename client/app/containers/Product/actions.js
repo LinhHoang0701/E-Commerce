@@ -37,6 +37,7 @@ import { allFieldsValidation } from "../../utils/validation";
 export const productChange = (name, value) => {
   let formData = {};
   formData[name] = value;
+  console.log(formData);
   return {
     type: PRODUCT_CHANGE,
     payload: formData,
@@ -260,7 +261,6 @@ export const addProduct = () => {
               : null
             : brands[1].value,
       };
-
       const { isValid, errors } = allFieldsValidation(newProduct, rules, {
         "required.sku": "Sku is required.",
         "required.name": "Name is required.",
@@ -272,6 +272,7 @@ export const addProduct = () => {
         "required.taxable": "Taxable is required.",
         "required.image": "Please upload files with jpg, jpeg, png format.",
       });
+
 
       if (!isValid) {
         return dispatch({ type: SET_PRODUCT_FORM_ERRORS, payload: errors });

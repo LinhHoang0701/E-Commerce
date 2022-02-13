@@ -15,6 +15,29 @@ const keys = require("../../config/keys");
 
 const { secret, tokenLife } = keys.jwt;
 
+const refreshTokens = [];
+
+router.post("/refreshToken", auth, async (req, res) => {
+  const { email } = req.body;
+  try {
+    const user = await User.findOne({ email });
+
+    const payload = {
+      id: user.id,
+    };
+
+    const refreshToken = jwt.sign(payload, "refresh", { expiresIn: "14d" });
+    refreshTokens.push(refreshToken);
+
+    res.status(200).json({
+      token: `Bearer ${refreshTokens[0]}`,
+      refreshToken: `Bearer ${refreshTokens[1]}`,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;

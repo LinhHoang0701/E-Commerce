@@ -4,12 +4,12 @@
  *
  */
 
-import React from 'react';
+import React from "react";
 
-import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
 
-const SelectOption = props => {
+const SelectOption = (props) => {
   const {
     disabled,
     error,
@@ -18,24 +18,24 @@ const SelectOption = props => {
     options,
     defaultValue,
     value,
-    handleSelectChange
+    handleSelectChange,
   } = props;
 
-  const _handleSelectChange = value => {
+  const _handleSelectChange = (value) => {
     handleSelectChange(value);
   };
 
   const animatedComponents = makeAnimated();
 
-  const styles = `select-box${error ? ' invalid' : ''}`;
+  const styles = `select-box${error ? " invalid" : ""}`;
 
   return (
     <div className={styles}>
       {label && <label>{label}</label>}
       <Select
         isDisabled={disabled}
-        className='select-container'
-        classNamePrefix='select-option'
+        className="select-container"
+        classNamePrefix="select-option"
         components={animatedComponents}
         isMulti={multi}
         options={options}
@@ -43,7 +43,7 @@ const SelectOption = props => {
         value={value}
         onChange={_handleSelectChange}
       />
-      <span className='invalid-message'>{error && error[0]}</span>
+      <span className="invalid-message">{error && error[0]}</span>
     </div>
   );
 };

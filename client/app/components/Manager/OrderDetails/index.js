@@ -4,33 +4,35 @@
  *
  */
 
-import React from 'react';
+import React from "react";
 
-import { Row, Col } from 'reactstrap';
+import { Row, Col } from "reactstrap";
 
-import OrderMeta from '../OrderMeta';
-import OrderItems from '../OrderItems';
-import OrderSummary from '../OrderSummary';
+import OrderMeta from "../OrderMeta";
+import OrderItems from "../OrderItems";
+import OrderSummary from "../OrderSummary";
+import Paypal from "../Paypal";
 
-const OrderDetails = props => {
-  const { order, user, cancelOrder, updateOrderItemStatus, onBack } = props;
+const OrderDetails = (props) => {
+  const { order, user, cancelOrder, updateOrderItemStatus, paidOrderSuccess, onBack } = props;
   return (
-    <div className='order-details'>
+    <div className="order-details">
       <Row>
-        <Col xs='12' md='12'>
+        <Col xs="12" md="12">
           <OrderMeta order={order} cancelOrder={cancelOrder} onBack={onBack} />
         </Col>
       </Row>
-      <Row className='mt-5'>
-        <Col xs='12' lg='8'>
+      <Row className="mt-5">
+        <Col xs="12" lg="8">
           <OrderItems
             order={order}
             user={user}
             updateOrderItemStatus={updateOrderItemStatus}
           />
         </Col>
-        <Col xs='12' lg='4' className='mt-5 mt-lg-0'>
+        <Col xs="12" lg="4" className="mt-5 mt-lg-0">
           <OrderSummary order={order} />
+          {user?._id === order?.user && !order.isPaid ? <Paypal order={order} handleSuccess={paidOrderSuccess} /> : ""}
         </Col>
       </Row>
     </div>
