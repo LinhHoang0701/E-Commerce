@@ -2,8 +2,7 @@
 /node_modules
 
 # production
-/build
-/dist
+
   
 # misc
 package.json.bak
