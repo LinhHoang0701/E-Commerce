@@ -27,7 +27,7 @@ const initialState = {
     total: 0,
     status: "",
   },
-  payment: [],
+  payment: {},
   isLoading: false,
 };
 

@@ -32,14 +32,14 @@ export const updateOrderStatus = (value) => {
 
 export const setOrderLoading = (value) => {
   return {
-    type: PAID_PAYPAL,
+    type: SET_ORDERS_LOADING,
     payload: value,
   };
 };
 
 export const setPayment = (value) => {
   return {
-    type: SET_ORDERS_LOADING,
+    type: PAID_PAYPAL,
     payload: value,
   };
 };
@@ -189,7 +189,6 @@ export const addOrder = () => {
     try {
       const cartId = localStorage.getItem("cart_id");
       const total = getState().cart.cartTotal;
-
       if (cartId) {
         const response = await axios.post(`/api/order/add`, {
           cartId,
