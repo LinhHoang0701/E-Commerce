@@ -41,12 +41,12 @@ router.post("/add", auth, async (req, res) => {
       total: orderDoc.total,
       products: cartDoc.products,
     };
-    // await mailgun.sendEmail(
-    //   req.user.email,
-    //   "order-confirmation",
-    //   req.headers.host,
-    //   newOrder
-    // );
+    await mailgun.sendEmail(
+      req.user.email,
+      "order-confirmation",
+      req.headers.host,
+      newOrder
+    );
 
     res.status(200).json({
       success: true,
