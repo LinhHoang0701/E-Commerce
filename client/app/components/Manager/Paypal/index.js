@@ -7,7 +7,7 @@ export default class Paypal extends React.Component {
 
     const onSuccess = (data) => {
       //   this.props.onSuccess(payment);
-      handleSuccess(order, data);
+      handleSuccess(order, data, "Paypal", order.total);
     };
 
     const onCancel = () => {

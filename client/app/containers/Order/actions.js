@@ -16,7 +16,6 @@ import {
   SET_ORDERS_LOADING,
   CLEAR_ORDERS,
   FETCH_CUSTOMER_ORDERS,
-  PAID_PAYPAL,
 } from "./constants";
 
 import { clearCart, getCartId } from "../Cart/actions";
@@ -33,13 +32,6 @@ export const updateOrderStatus = (value) => {
 export const setOrderLoading = (value) => {
   return {
     type: SET_ORDERS_LOADING,
-    payload: value,
-  };
-};
-
-export const setPayment = (value) => {
-  return {
-    type: PAID_PAYPAL,
     payload: value,
   };
 };
@@ -218,7 +210,7 @@ export const placeOrder = () => {
   };
 };
 
-export const paidOrderSuccess = (order, data) => {
+export const paidOrderSuccess = (order, data, type, amount, tokenId = null) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.post("/api/payment/success", {
@@ -226,14 +218,19 @@ export const paidOrderSuccess = (order, data) => {
         productId: order.products[0]._id,
         orderId: order._id,
         data,
+        provider: type,
+        tokenId,
+        amount,
       });
       const successfulOptions = {
         title: `${response.data.message}`,
         position: "tr",
         autoDismiss: 1,
       };
-      dispatch(setPayment(response.data));
-      dispatch(success(successfulOptions));
+      if (response.data) {
+        dispatch(fetchOrder(order._id, false));
+        dispatch(success(successfulOptions));
+      }
     } catch (error) {
       handleError(error, dispatch);
     }
