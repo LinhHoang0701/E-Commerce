@@ -13,6 +13,10 @@ module.exports = {
     secret: process.env.JWT_SECRET,
     tokenLife: "7d",
   },
+  stripe: {
+    key: process.env.STRIPE_KEY,
+    secret: process.env.STRIPE_SECRET,
+  },
   mailchimp: {
     key: process.env.MAILCHIMP_KEY,
     listKey: process.env.MAILCHIMP_LIST_KEY,

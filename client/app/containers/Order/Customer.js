@@ -23,7 +23,6 @@ class Customer extends React.PureComponent {
 
   render() {
     const { history, user, allOrders, isLoading, searchOrders } = this.props;
-    console.log(allOrders);
     return (
       <div className="order-dashboard">
         <SubPage
