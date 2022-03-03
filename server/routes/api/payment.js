@@ -7,6 +7,7 @@ const Order = require("../../models/order");
 const Payment = require("../../models/payment");
 const { filterMonth } = require("../../services/payment");
 const key = require("../../config/keys");
+const mailgun = require("../../services/mailgun");
 
 const stripe = require("stripe")(key.stripe.secret);
 
@@ -57,7 +58,14 @@ router.post("/success", auth, async function (req, res) {
       provider,
     });
 
-    await payment.save();
+    const newPayment = await payment.save();
+
+    await mailgun.sendEmail(
+      req.user.email,
+      "payment-success",
+      req.headers.host,
+      newPayment
+    );
 
     res.status(201).json({
       success: true,
@@ -67,13 +75,6 @@ router.post("/success", auth, async function (req, res) {
     res.status(400).json({
       error: "Your request could not be processed. Please try again.",
     });
-  }
-});
-
-router.post("/checkout", async (req, res) => {
-  try {
-  } catch (error) {
-    res.status(500).json({ message: "Something was wrong!" });
   }
 });
 

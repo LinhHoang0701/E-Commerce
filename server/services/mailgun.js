@@ -71,6 +71,9 @@ const prepareTemplate = (type, host, data) => {
       message = template.orderConfirmationEmail(data);
       break;
 
+    case "payment-success":
+      message = template.paymentSuccessEmail(data);
+
     default:
       message = "";
   }

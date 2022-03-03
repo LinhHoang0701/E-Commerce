@@ -79,7 +79,7 @@ exports.contactEmail = () => {
 
 exports.merchantApplicationEmail = () => {
   const message = {
-    subject: "Sell on MERN Store",
+    subject: "Sell on Industrious Ecommerce",
     text: `We received your request! Our team will contact you soon. \n\n`,
   };
 
@@ -91,6 +91,17 @@ exports.orderConfirmationEmail = (order) => {
     subject: `Order Confirmation ${order._id}`,
     text:
       `Hi ${order.user.firstName}! Thank you for your order!. \n\n` +
+      `We've received your order and will contact you as soon as your package is shipped. \n\n`,
+  };
+
+  return message;
+};
+
+exports.paymentSuccessEmail = (order) => {
+  const message = {
+    subject: `Payment successfully in ${order._id} by ${order.provider}`,
+    text:
+      `Hi ${order.user.firstName}! You have payment successfully!. \n\n` +
       `We've received your order and will contact you as soon as your package is shipped. \n\n`,
   };
 
