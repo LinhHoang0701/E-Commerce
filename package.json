@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "engines": {
     "npm": "6.x"
-  }
+  },
   "scripts": {
     "build": "npm run build:clean && cross-env NODE_ENV=production webpack --progress --colors",
     "build:clean": "rimraf ./dist",
