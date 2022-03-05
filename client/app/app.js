@@ -46,10 +46,10 @@ const app = () => (
     <ConnectedRouter history={history}>
       <ScrollToTop>
         <Application />
-        <MessengerCustomerChat
+        {/* <MessengerCustomerChat
           pageId="104219402203712"
           appId="444055013919898"
-        />
+        /> */}
       </ScrollToTop>
     </ConnectedRouter>
   </Provider>

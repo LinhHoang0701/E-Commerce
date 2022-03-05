@@ -24,7 +24,7 @@ const FeatureInfo = (props) => {
           <span className="featuredMoneyRate"></span>
         </div>
         <span className="featuredSub">
-          Increased by 100% <i class="fa fa-arrow-up featuredIcon"></i>
+          Increased by 100% <i className="fa fa-arrow-up featuredIcon"></i>
         </span>
       </div>
       <div className="featuredItem">
@@ -34,7 +34,7 @@ const FeatureInfo = (props) => {
           <span className="featuredMoneyRate"></span>
         </div>
         <span className="featuredSub">
-          Increased by 100% <i class="fa fa-arrow-up featuredIcon"></i>
+          Increased by 100% <i className="fa fa-arrow-up featuredIcon"></i>
         </span>
       </div>
       <div className="featuredItem">
@@ -45,7 +45,7 @@ const FeatureInfo = (props) => {
         </div>
         <span className="featuredSub">
           Increased by 0%{" "}
-          <i class="fa fa-arrow-right featuredIcon dash"></i>
+          <i className="fa fa-arrow-right featuredIcon dash"></i>
         </span>
       </div>
     </div>
