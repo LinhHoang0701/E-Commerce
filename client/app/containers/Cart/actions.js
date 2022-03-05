@@ -141,6 +141,7 @@ export const getCartId = () => {
       const cartId = localStorage.getItem("cart_id");
       const cartItems = getState().cart.cartItems;
       const products = getCartItems(cartItems);
+
       if (!cartId) {
         const response = await axios.post(`/api/cart/add`, { products });
 

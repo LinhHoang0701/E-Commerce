@@ -24,6 +24,7 @@
   "author": "Linh Hoang",
   "license": "",
   "dependencies": {
+    "@material-ui/icons": "^4.11.2",
     "autosuggest-highlight": "^3.1.1",
     "aws-sdk": "^2.799.0",
     "axios": "^0.21.1",
@@ -59,6 +60,7 @@
     "react-bootstrap-table2-toolkit": "^2.0.1",
     "react-countup": "^6.1.1",
     "react-dom": "^16.8.6",
+    "react-messenger-customer-chat": "^0.8.0",
     "react-multi-carousel": "^2.5.5",
     "react-notification-system-redux": "^2.0.0",
     "react-paypal-express-checkout": "^1.0.5",
