@@ -14,7 +14,6 @@ import OrderSummary from "../OrderSummary";
 import Paypal from "../Paypal";
 import StripeCheckout from "react-stripe-checkout";
 import image from "../../../../public/images/industrious-logo.png";
-import key from "../../../../../server/config/keys";
 
 const OrderDetails = (props) => {
   const {
@@ -70,7 +69,9 @@ const OrderDetails = (props) => {
                 email={user.email}
                 amount={order.total * 100}
                 currency="USD"
-                stripeKey={key.stripe.key}
+                stripeKey={
+                  "pk_test_51KVytPBuMuQceHA0VctGa6Uy9tHdxJftugQ7NeavbzbSubxGlOi9ykEg3TifxuIbZfsSgs8lgjiqLlEcyycamfKw00tQVNQbTa"
+                }
                 token={onToken}
               >
                 <Button className="w-100 btn-dark text-light">
