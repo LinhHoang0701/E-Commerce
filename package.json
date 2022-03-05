@@ -4,8 +4,8 @@
   "description": "Industrious Ecommerce",
   "main": "server/index.js",
   "engines": {
-    "node": "16.13.2",
-    "npm": "8.1.2"
+    "node": "16.x",
+    "npm": "6.x"
   },
   "scripts": {
     "build": "npm run build:clean && cross-env NODE_ENV=production webpack --progress --colors",
@@ -64,7 +64,6 @@
     "react-bootstrap-table2-toolkit": "^2.0.1",
     "react-countup": "^6.1.1",
     "react-dom": "^16.8.6",
-    "react-messenger-customer-chat": "^0.8.0",
     "react-multi-carousel": "^2.5.5",
     "react-notification-system-redux": "^2.0.0",
     "react-paypal-express-checkout": "^1.0.5",
