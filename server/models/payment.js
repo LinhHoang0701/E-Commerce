@@ -7,6 +7,9 @@ const paymentSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
+    provider: {
+      type: String,
+    },
     product: {
       type: Schema.Types.ObjectId,
       ref: "Product",
@@ -14,6 +17,9 @@ const paymentSchema = new Schema(
     order: {
       type: Schema.Types.ObjectId,
       ref: "Order",
+    },
+    total: {
+      type: Number,
     },
     data: {
       type: Array,
