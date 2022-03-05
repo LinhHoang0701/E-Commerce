@@ -34,7 +34,7 @@ const AnalystDetail = (props) => {
       <div className="info">
         <div className="desc">
           <FeatureInfo data={data} analyst={analyst} />
-          <Chart data={data} title={"Incoming Analyst"} grid dataKey="Total" />
+          {/* <Chart data={data} title={"Incoming Analyst"} grid dataKey="Total" /> */}
         </div>
       </div>
     </div>
