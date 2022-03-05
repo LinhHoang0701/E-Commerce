@@ -4,8 +4,7 @@
   "description": "Industrious Ecommerce",
   "main": "server/index.js",
   "engines": {
-    "node": "16.x",
-    "npm": "6.x"
+    "node": "16.x"
   },
   "scripts": {
     "build": "npm run build:clean && cross-env NODE_ENV=production webpack --progress --colors",
