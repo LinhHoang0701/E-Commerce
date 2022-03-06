@@ -7,7 +7,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
-// import MessengerCustomerChat from "react-messenger-customer-chat";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 
 import store, { history } from "./store";
 import { SET_AUTH } from "./containers/Authentication/constants";
@@ -46,10 +46,10 @@ const app = () => (
     <ConnectedRouter history={history}>
       <ScrollToTop>
         <Application />
-        {/* <MessengerCustomerChat
+        <MessengerCustomerChat
           pageId="104219402203712"
           appId="444055013919898"
-        /> */}
+        />
       </ScrollToTop>
     </ConnectedRouter>
   </Provider>
