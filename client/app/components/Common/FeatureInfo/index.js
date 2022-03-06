@@ -1,5 +1,5 @@
 import React from "react";
-import CountUp from "react-countup";
+// import CountUp from "react-countup";
 
 import "./FeatureInfo.css";
 
@@ -19,7 +19,7 @@ const FeatureInfo = (props) => {
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">
             ${" "}
-            <CountUp className="featuredMoney" to={0} end={sumOfTotal(data)} />
+            {/* <CountUp className="featuredMoney" to={0} end={sumOfTotal(data)} /> */}
           </span>
           <span className="featuredMoneyRate"></span>
         </div>
@@ -30,7 +30,7 @@ const FeatureInfo = (props) => {
       <div className="featuredItem">
         <span className="featuredTitle">Weekly Orders</span>
         <div className="featuredMoneyContainer">
-          <CountUp className="featuredMoney" to={0} end={analyst.length} />
+          {/* <CountUp className="featuredMoney" to={0} end={analyst.length} /> */}
           <span className="featuredMoneyRate"></span>
         </div>
         <span className="featuredSub">
@@ -40,7 +40,7 @@ const FeatureInfo = (props) => {
       <div className="featuredItem">
         <span className="featuredTitle">Visitors Online</span>
         <div className="featuredMoneyContainer">
-          <CountUp className="featuredMoney" to={0} end={0} />
+          {/* <CountUp className="featuredMoney" to={0} end={0} /> */}
           <span className="featuredMoneyRate"></span>
         </div>
         <span className="featuredSub">
