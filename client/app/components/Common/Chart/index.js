@@ -9,8 +9,6 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import "./chart.css";
-
 const Chart = (props) => {
   const { data, title, dataKey, grid } = props;
   return (

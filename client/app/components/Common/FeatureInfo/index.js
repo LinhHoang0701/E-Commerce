@@ -2,8 +2,6 @@ import React from "react";
 import CountUp from "react-countup";
 import { ArrowDownward, ArrowUpward, ArrowRightAlt } from "@material-ui/icons";
 
-import "./FeatureInfo.css";
-
 const FeatureInfo = (props) => {
   const { data, analyst } = props;
 
