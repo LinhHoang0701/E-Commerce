@@ -4,7 +4,6 @@
   "description": "Industrious Ecommerce",
   "main": "server/index.js",
   "engines": {
-    "npm": "6.x",
     "node": "16.x"
   },
   "scripts": {
