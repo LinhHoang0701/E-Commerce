@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
-
 // Bring in Models & Helpers
 const Category = require('../../models/category');
 const auth = require('../../middleware/auth');

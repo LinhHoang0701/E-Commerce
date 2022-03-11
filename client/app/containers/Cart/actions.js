@@ -182,6 +182,7 @@ const getCartItems = (cartItems) => {
     newItem.price = item.price;
     newItem.taxable = item.taxable;
     newItem.product = item._id;
+    newItem.brand = item.brand._id;
     newCartItems.push(newItem);
   });
 

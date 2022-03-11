@@ -24,7 +24,6 @@ passport.use(
         if (user) {
           return done(null, user);
         }
-
         return done(null, false);
       })
       .catch((err) => {
@@ -32,7 +31,6 @@ passport.use(
       });
   })
 );
-console.log(`${serverURL}/${apiURL}/${google.callbackURL}`);
 const googleAuth = async () => {
   try {
     passport.use(

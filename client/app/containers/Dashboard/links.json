@@ -1,8 +1,8 @@
 {
   "ROLE_ADMIN": [
-    { "to": "/analyst", "name": "Dashboard" },
     { "to": "/", "name": "Account Details" },
     { "to": "/security", "name": "Account Security" },
+    { "to": "/analyst", "name": "Dashboard" },
     { "to": "/address", "name": "Address" },
     { "to": "/product", "name": "Products" },
     { "to": "/category", "name": "Categories" },
@@ -15,9 +15,9 @@
     { "to": "/support", "name": "Support" }
   ],
   "ROLE_MERCHANT": [
-    { "to": "/analyst", "name": "Dashboard" },
     { "to": "/", "name": "Account Details" },
     { "to": "/security", "name": "Account Security" },
+    { "to": "/analyst", "name": "Dashboard" },
     { "to": "/address", "name": "Address" },
     { "to": "/brand", "name": "Brand" },
     { "to": "/product", "name": "Products" },

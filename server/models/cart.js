@@ -36,6 +36,10 @@ const CartItemSchema = new Schema({
       "Cancelled",
     ],
   },
+  brand: {
+    type: Schema.Types.ObjectId,
+    ref: "Brand",
+  },
 });
 
 module.exports = Mongoose.model("CartItem", CartItemSchema);

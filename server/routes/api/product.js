@@ -163,6 +163,7 @@ router.post("/list", async (req, res) => {
       { slug: categoryFilter.category, isActive: true },
       "products -_id"
     );
+
     if (categoryDoc && categoryFilter !== category) {
       basicQuery.push({
         $match: {

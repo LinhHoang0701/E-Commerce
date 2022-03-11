@@ -181,7 +181,6 @@ export const addOrder = () => {
     try {
       const cartId = localStorage.getItem("cart_id");
       const total = getState().cart.cartTotal;
-      console.log(cartId);
       if (cartId) {
         const response = await axios.post(`/api/order/add`, {
           cartId,
@@ -203,7 +202,6 @@ export const placeOrder = () => {
     const cartItems = getState().cart.cartItems;
     if (token && cartItems.length > 0) {
       Promise.all([dispatch(getCartId())]).then(() => {
-        console.log("aaaa");
         dispatch(addOrder());
       });
     }

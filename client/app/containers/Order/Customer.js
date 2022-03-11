@@ -29,7 +29,8 @@ class Customer extends React.PureComponent {
           title="Customer Orders"
           actionTitle="My Orders"
           handleAction={() =>
-            user.role === "ROLE_ADMIN" && history.push("/dashboard/orders")
+            (user.role === "ROLE_ADMIN" || user.role === "ROLE_MERCHANT") &&
+            history.push("/dashboard/orders")
           }
         >
           <OrderSearch onSearchSubmit={searchOrders} />
@@ -47,7 +48,6 @@ class Customer extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     user: state.account.user,
     orders: state.order.searchedOrders,

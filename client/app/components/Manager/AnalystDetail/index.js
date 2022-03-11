@@ -30,7 +30,7 @@ const AnalystDetail = (props) => {
     },
   ];
   return (
-    <div className="account-details">
+    <div className="analyze-details">
       <div className="info">
         <div className="desc">
           <FeatureInfo data={data} analyst={analyst} />

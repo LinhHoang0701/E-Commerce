@@ -33,7 +33,6 @@ router.post("/add", auth, async (req, res) => {
         path: "brand",
       },
     });
-
     const newOrder = {
       _id: orderDoc._id,
       created: orderDoc.created,
@@ -41,12 +40,12 @@ router.post("/add", auth, async (req, res) => {
       total: orderDoc.total,
       products: cartDoc.products,
     };
-    // await mailgun.sendEmail(
-    //   req.user.email,
-    //   "order-confirmation",
-    //   req.headers.host,
-    //   newOrder
-    // );
+    await mailgun.sendEmail(
+      req.user.email,
+      "order-confirmation",
+      req.headers.host,
+      newOrder
+    );
 
     res.status(200).json({
       success: true,
@@ -186,8 +185,11 @@ router.get("/customer", auth, async (req, res) => {
         },
       },
     });
-
-    ordersDoc = ordersDoc.filter((order) => order.cart);
+    if (req.user.role == "ROLE_MERCHANT") {
+    }
+    if (ordersDoc) {
+      ordersDoc = ordersDoc.filter((order) => order.cart);
+    }
 
     if (ordersDoc.length > 0) {
       const newOrders = ordersDoc.map((o) => {
@@ -210,6 +212,7 @@ router.get("/customer", auth, async (req, res) => {
       });
     }
   } catch (error) {
+    console.log(error);
     res.status(400).json({
       error: "Your request could not be processed. Please try again.",
     });
