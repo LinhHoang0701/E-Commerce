@@ -3,14 +3,13 @@
  * Analyst
  *
  */
-import React from "react";
-import { Row, Col } from "reactstrap";
+import React, { useEffect } from "react";
 import Chart from "../../Common/Chart";
 import FeatureInfo from "../../Common/FeatureInfo";
 
 const AnalystDetail = (props) => {
-  const { analyst } = props;
-
+  const { analyst, users, orders } = props;
+  
   const data = [
     {
       name: "Dec",
@@ -33,7 +32,12 @@ const AnalystDetail = (props) => {
     <div className="analyze-details">
       <div className="info">
         <div className="desc">
-          <FeatureInfo data={data} analyst={analyst} />
+          <FeatureInfo
+            data={data}
+            analyst={analyst}
+            users={users}
+            orders={orders}
+          />
           <Chart data={data} title={"Incoming Analyst"} grid dataKey="Total" />
         </div>
       </div>

@@ -13,7 +13,7 @@ const Chart = (props) => {
   const { data, title, dataKey, grid } = props;
   return (
     <>
-      <div className="chart">
+      <div className="chart" style={{"margin-top":"20px"}}>
         <h3 className="chartTitle">{title}</h3>
         <ResponsiveContainer width="100%" aspect={4 / 1}>
           <LineChart data={data}>

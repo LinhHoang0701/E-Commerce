@@ -15,8 +15,6 @@ import { XIcon } from "../../Common/Icon";
 const WishList = (props) => {
   const { wishlist, updateWishlist } = props;
 
-  console.log(wishlist);
-
   const getProductImage = (item) => {
     if (item.product) {
       const product = item.product;

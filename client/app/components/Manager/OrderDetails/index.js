@@ -73,7 +73,7 @@ const OrderDetails = (props) => {
                 stripeKey={key.stripe.key}
                 token={onToken}
               >
-                <Button className="w-100 btn-dark text-light">
+                <Button className="w-100 btn-dark text-light" style={{"height": "45px"}}>
                   Checkout With Credit Card
                 </Button>
               </StripeCheckout>

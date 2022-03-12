@@ -17,10 +17,10 @@ const OrderMeta = props => {
 
   const renderMetaAction = () => {
     const isNotDelivered =
-      order.products.filter(i => i.status === 'Delivered').length < 1;
+      order.products.filter(i => i.status === 'Paid').length < 1;
 
     if (isNotDelivered) {
-      return <Button size='sm' text={order.isPaid ? "You can't cancel this order!" : 'Cancel Order'} disabled={order.isPaid ? true : false} onClick={cancelOrder} />;
+      return <Button size='sm' text={'Cancel Order'} disabled={order.isPaid ? true : false} onClick={cancelOrder} />;
     }
   };
 

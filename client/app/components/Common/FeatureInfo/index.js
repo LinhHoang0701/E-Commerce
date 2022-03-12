@@ -3,18 +3,17 @@ import CountUp from "react-countup";
 import { ArrowDownward, ArrowUpward, ArrowRightAlt } from "@material-ui/icons";
 
 const FeatureInfo = (props) => {
-  const { data, analyst } = props;
+  const { data, analyst, users, orders } = props;
 
   const sumOfTotal = (value) => {
     let total = 0;
     total = value.reduce((a, b) => a + b["Total"], 0);
     return total;
   };
-
   return (
     <div className="featured">
       <div className="featuredItem">
-        <span className="featuredTitle">Weekly Sales</span>
+        <span className="featuredTitle">Sales</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">
             ${" "}
@@ -27,9 +26,9 @@ const FeatureInfo = (props) => {
         </span>
       </div>
       <div className="featuredItem">
-        <span className="featuredTitle">Weekly Orders</span>
+        <span className="featuredTitle">Orders</span>
         <div className="featuredMoneyContainer">
-          <CountUp className="featuredMoney" to={0} end={analyst.length} />
+          <CountUp className="featuredMoney" to={0} end={orders.length} />
           <span className="featuredMoneyRate"></span>
         </div>
         <span className="featuredSub">
@@ -37,9 +36,9 @@ const FeatureInfo = (props) => {
         </span>
       </div>
       <div className="featuredItem">
-        <span className="featuredTitle">Visitors Online</span>
+        <span className="featuredTitle">Users</span>
         <div className="featuredMoneyContainer">
-          <CountUp className="featuredMoney" to={0} end={0} />
+          <CountUp className="featuredMoney" to={0} end={users.length} />
           <span className="featuredMoneyRate"></span>
         </div>
         <span className="featuredSub">

@@ -37,7 +37,6 @@ import { allFieldsValidation } from "../../utils/validation";
 export const productChange = (name, value) => {
   let formData = {};
   formData[name] = value;
-  console.log(formData);
   return {
     type: PRODUCT_CHANGE,
     payload: formData,

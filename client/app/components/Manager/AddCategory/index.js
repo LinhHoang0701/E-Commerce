@@ -66,7 +66,6 @@ const AddCategory = (props) => {
               options={products}
               handleSelectChange={(value) => {
                 categoryChange("products", value);
-                console.log(categoryChange("products", value));
               }}
             />
           </Col>

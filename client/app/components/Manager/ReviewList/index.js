@@ -17,8 +17,6 @@ import { CheckIcon, RefreshIcon, TrashIcon } from '../../Common/Icon';
 const ReviewList = props => {
   const { reviews, approveReview, rejectReview, deleteReview } = props;
 
-  console.log(reviews);
-
   const getAvatar = review => {
     const color = getRandomColors();
     if (review.user.firstName) {

@@ -17,7 +17,6 @@
   "ROLE_MERCHANT": [
     { "to": "/", "name": "Account Details" },
     { "to": "/security", "name": "Account Security" },
-    { "to": "/analyst", "name": "Dashboard" },
     { "to": "/address", "name": "Address" },
     { "to": "/brand", "name": "Brand" },
     { "to": "/product", "name": "Products" },
